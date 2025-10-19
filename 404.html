@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murat Şahin Dev</title>
+    <!-- CSS dosyaları derleme sırasında otomatik olarak bağlanacaktır -->
+    <!-- Başlık ve favicon gibi diğer meta bilgileri buraya eklenebilir -->
+</head>
+<body>
+    <!-- React uygulamasının yükleneceği ana DOM düğümü -->
+    <div id="root"></div>
+    
+    <!--
+      UYARI: React Router ve Vite ile derlenen uygulamalar,
+      JavaScript dosyalarını genellikle otomatik olarak kendileri enjekte eder.
+      Ancak güvenlik için en azından ana giriş (entry) dosyasını eklemeliyiz.
+      Bu, derleme çıktısındaki doğru JavaScript dosya yoluna göre değişir.
+      Dağıtım sırasında 404.html kuralı, yönlendirmeyi halledecektir.
+    -->
+    
+    <!-- Eğer derleyici otomatik olarak JS enjekte etmezse,
+         bu dosya kopyalandıktan sonra <script src="/assets/entry.client-[hash].js"></script> gibi bir JS dosyasını manuel olarak eklemek gerekebilir.
+         Şimdilik bu şablonu kullanıyoruz ve derleyicinin gerisini halletmesini umuyoruz.
+    -->
+</body>
+</html>
