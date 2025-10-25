@@ -1,26 +1,13 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Murat Şahin Dev</title>
-    <!--
-      root.tsx içindeki Linkler (Fonts, CSS vb.)
-      Derleyici (Vite) tarafından otomatik olarak <head> içine enjekte edilecektir.
-    -->
-</head>
-<body>
-    <!-- React uygulamasının yükleneceği ana DOM düğümü -->
+  </head>
+  <body>
     <div id="root"></div>
-    
-    <!-- KRİTİK DÜZELTME: Uygulamanın giriş dosyasını yüklüyoruz. -->
-    <!-- Varsayım: Ana giriş noktanız root.tsx (veya onu yükleyen dosya) olduğu için, 
-       dosya yolunu bu şekilde ayarlıyoruz. Eğer root.tsx app klasöründeyse: /app/root.tsx  -->
-    <script type="module" src="/app/root.tsx"></script>
-    
-    <!--
-      Bu script etiketi, derleme sırasında Vite tarafından işlenecek
-      ve tarayıcının doğru JavaScript dosyasını yüklemesini sağlayacaktır.
-    -->
-</body>
+    <!-- Vite automatically injects your build script -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
