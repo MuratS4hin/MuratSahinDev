@@ -14,7 +14,7 @@ const HomePage = () => {
                     <div className="home-text">
                         <h1>Murat Şahin | Full-Stack Developer</h1>
                         <h2>
-                            I develop modern and interactive web applications with a focus on user experience.
+                            I develop modern and interactive web and mobile applications with a focus on user experience.
                             Check out the solutions I've created.
                         </h2>
                     </div>

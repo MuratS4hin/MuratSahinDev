@@ -6,19 +6,19 @@ import './AboutMePage.css';
 // Icons
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
-import CodeIcon from '@mui/icons-material/Code';
-import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import CreateIcon from '@mui/icons-material/Create';
+import DonutSmallIcon from '@mui/icons-material/DonutSmall';
 
 const AboutMePage = () => {
 
-const SidebarLink = ({ href, icon: Icon, text, isActive = false }) => {
-  return (
-    <a href={href} className={`sidebar-link ${isActive ? 'active' : ''}`}>
-      {Icon && <Icon className="sidebar-icon" />}
-      <p>{text}</p>
-    </a>
-  );
-};
+    const SidebarLink = ({ href, icon: Icon, text, isActive = false }) => {
+        return (
+            <a href={href} className={`sidebar-link ${isActive ? 'active' : ''}`}>
+                {Icon && <Icon className="sidebar-icon" />}
+                <p>{text}</p>
+            </a>
+        );
+    };
 
 
     return (
@@ -27,22 +27,22 @@ const SidebarLink = ({ href, icon: Icon, text, isActive = false }) => {
             <div className="about-container">
                 <aside className="sidebar">
                     <div className="sidebar-top">
-                        <div
+                        {/* <div
                             className="profile-picture"
                             style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBg65H5USjg6t2qCPC3m15xxQ1oYS_P03edxQUDXtL51bQJ9l_FqQiTWlJcZAxCeVTHYYR9b2RLS7EJQWxlfQvwpO-YFcD88hPtVjoEUHRELgnLDM3LtX-Vce591sgP_m5pbhjo-LpiXA96flF6GwljXPVhZvmG1eOTp_-rfbSPUZG83ZFZIIDmi60y9IRoGkMRGwWtiMqFgvFKWIoyM0y9IGBtTRBQcRRpyEZF2QeHIts2xk-O-Vj-qwNhZugqpFt-lQo4N8mLXJY")' }}
-                        />
+                        /> */}
                         <div className="profile-info">
                             <h1>Murat Şahin</h1>
                             <p>Senior Software Developer</p>
                         </div>
                     </div>
                     <div className="sidebar-links">
-                        <SidebarLink href="#egitim" icon={SchoolIcon} text="Eğitim" />
-                        <SidebarLink href="#deneyim" icon={WorkIcon} text="Deneyim" />
-                        <SidebarLink href="#beceriler" icon={CodeIcon} text="Beceriler" />
-                        <SidebarLink href="#ilgi-alanlari" icon={PhotoCameraIcon} text="İlgi Alanları" />
+                        <SidebarLink href="#education" icon={SchoolIcon} text="Education" />
+                        <SidebarLink href="#experience" icon={WorkIcon} text="Experience" />
+                                                <SidebarLink href="#projects" icon={CreateIcon} text="Projects" />
+                        <SidebarLink href="#skill" icon={DonutSmallIcon} text="Skills" />
                     </div>
-                    <button className="download-cv">CV'mi İndir</button>
+                    <button className="download-cv">Download Resume</button>
                 </aside>
 
                 {/* Main Content */}
@@ -53,10 +53,10 @@ const SidebarLink = ({ href, icon: Icon, text, isActive = false }) => {
                     </div>
 
                     {/* Education */}
-                    <section className="section" id="egitim">
+                    <section className="section" id="education">
                         <div className="section-header">
                             <SchoolIcon />
-                            <h2>Eğitim</h2>
+                            <h2>Education</h2>
                         </div>
                         <div className="timeline">
                             <div className="timeline-content">
@@ -65,102 +65,91 @@ const SidebarLink = ({ href, icon: Icon, text, isActive = false }) => {
                                 <p className="subtitle">2017-2021</p>
                                 <p className="subtitle">GPA: 3.07</p>
                             </div>
-                            {/* <div className="timeline-content">
-                                <p className="title">Ankara Fen Lisesi</p>
-                                <p className="subtitle">Sayısal</p>
-                                <p className="date">2012 - 2016</p>
-                            </div> */}
                         </div>
                     </section>
 
                     {/* Experience */}
-                    <section className="section" id="deneyim">
-                                                <div className="section-header">
+                    <section className="section" id="experience">
+                        <div className="section-header">
                             <WorkIcon />
-                            <h2>İş Deneyimi</h2>
+                            <h2>Experiences</h2>
                         </div>
                         <div className="experience">
                             <div className="experience-item">
                                 <div>
-                                    <p className="title">Teknoloji A.Ş.</p>
-                                    <p className="subtitle">Kıdemli Yazılım Geliştirici</p>
-                                    <p className="date">Ocak 2022 - Günümüz</p>
+                                    <p className="title">Türkiye Finans Katılım Bankası</p>
+                                    <p className="subtitle">Senior Software Developer</p>
+                                    <p className="date">Ocak 2023 - Today</p>
                                     <ul>
-                                        <li>Yeni nesil web uygulamalarının geliştirilmesi ve bakımı.</li>
-                                        <li>React ve Node.js kullanarak ölçeklenebilir API'ler oluşturma.</li>
-                                        <li>Genç geliştiricilere mentorluk yapma ve kod incelemeleri.</li>
+                                        <li>Developed RESTful APIs using ASP.NET Entity Framework (MVC & Web API) for Treasury, Credit, and Trading applications, enabling secure and efficient integration across core banking systems.</li>
+                                        <li>Optimized and created complex MSSQL queries and stored procedures to improve performance.</li>
+                                        <li>Implemented user interfaces and business logic for several projects using React (JavaScript).</li>
+                                        <li>Actively designed and developed essential screens and services for projects while troubleshooting issues and optimizing existing systems for improved performance and reliability.</li>
+                                        <li>Designed and implemented applications with distributed architecture, ensuring scalability and resilience.</li>
+                                        <li>Collaborated with UI/UX designers and product owners to deliver end-to-end financial solutions.</li>
                                     </ul>
+
                                 </div>
                             </div>
 
                             <div className="experience-item">
                                 <div>
-                                    <p className="title">Yazılım Çözümleri Ltd.</p>
+                                    <p className="title">Definex Consulting</p>
                                     <p className="subtitle">Yazılım Geliştirici</p>
                                     <p className="date">Temmuz 2020 - Aralık 2021</p>
                                     <ul>
-                                        <li>Kurumsal müşteriler için özel yazılım çözümleri geliştirme.</li>
-                                        <li>Python ve Django ile arka uç sistemleri üzerinde çalışma.</li>
-                                        <li>Mevcut sistemlerde performans iyileştirmeleri yapma.</li>
+                                        <li>Designed and developed internal business applications (an education platform and an order-tracking system) using .NET and Vue.js, implementing a microservice-based architecture and delivering end-to-end functionality including UI design, service integration, and performance optimization.</li>
+                                        <li>Contributed to the development of complex banking solutions such as “Letter of Inquiry Foreign Trade” (increasing customer profits 4x) and “Document Collection” (streamlining high-volume banking processes) using the PEGA System Application, ensuring compliance and process automation.</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Projects */
+                        <section className="section" id="projects">
+                            <div className="section-header">
+                                <CreateIcon />
+                                <h2>Projects</h2>
+                            </div>
+                            <div className="experience">
+                                <div className="experience-item">
+                                    <div>
+                                        <p className="title">Match Score App</p>
+                                        <ul>
+                                            <li>Built a cross-platform React Native app delivering real-time sports scores.</li>
+                                            <li>Set up CI/CD pipelines with Docker and GitHub Actions for automated builds and deployments on a distributed system.</li>
+                                            <li>Developed .NET (C#) and Python backend services with PostgreSQL as the database, Dockerized and deployed on a Linux VM in Google Cloud Platform (GCP).</li>
+                                            <li>Implemented MVVM, Redux, and Context API for maintainable and performant state management.</li>
+                                            <li>Integrated RESTful APIs and real-time data streams to provide seamless, up-to-date user experiences.</li>
+                                            <li>Followed Clean Architecture principles, enabling modular, testable, and easily extensible code.</li>
+                                            <li>Created reusable UI components following mobile UX best practices for iOS and Android.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>}
+
+                    {/* Skills */}
+                    <section className="section" id="skill">
+                        <div className="section-header">
+                            <DonutSmallIcon />
+                            <h2>Skills</h2>
+                        </div>
+                        <div className="skills-grid">
+                            <div className="skill-category">
+                                <div className="experience-item">
+                                    <ul>
+                                        <li>C# (.Net), React, React Native, Vue/Vuetify, JavaScript, TypeScript, SQL (MSSQL, PostgreSQL),
+                                            Docker, Git, Google Cloud Platform, Python, Pega System, OOP and SOLID principles, Asp .Net MVC,
+                                            Agile, Azure, Jira, HTTP, LINQ
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </section>
-
-                    {/* Skills */}
-                    <section className="section" id="beceriler">
-                        <h2>Beceriler</h2>
-                        <div className="skills-grid">
-                            <div className="skill-category">
-                                <h3>Teknik Beceriler</h3>
-                                <div className="skill-bar">
-                                    <span>.NET</span>
-                                    <div className="bar"><div style={{width: '90%'}} /></div>
-                                </div>
-                                <div className="skill-bar">
-                                    <span>JavaScript</span>
-                                    <div className="bar"><div style={{width: '85%'}} /></div>
-                                </div>
-                                <div className="skill-bar">
-                                    <span>Python</span>
-                                    <div className="bar"><div style={{width: '75%'}} /></div>
-                                </div>
-                            </div>
-                            {/* <div className="skill-category">
-                                <h3>Kişisel Beceriler</h3>
-                                <div className="soft-skills">
-                                    <span>Ekip Çalışması</span>
-                                    <span>Problem Çözme</span>
-                                    <span>İletişim</span>
-                                    <span>Zaman Yönetimi</span>
-                                </div>
-                            </div> */}
-                        </div>
-                    </section>
-
-                    {/* Interests
-                    <section className="section" id="ilgi-alanlari">
-                        <h2>İlgi Alanları</h2>
-                        <div className="interests-grid">
-                            <div className="interest-item">
-                                <span className="material-symbols-outlined">photo_camera</span>
-                                <p>Fotoğrafçılık</p>
-                            </div>
-                            <div className="interest-item">
-                                <span className="material-symbols-outlined">flight_takeoff</span>
-                                <p>Seyahat</p>
-                            </div>
-                            <div className="interest-item">
-                                <span className="material-symbols-outlined">menu_book</span>
-                                <p>Kitap Okuma</p>
-                            </div>
-                            <div className="interest-item">
-                                <span className="material-symbols-outlined">hiking</span>
-                                <p>Doğa Yürüyüşü</p>
-                            </div>
-                        </div>
-                    </section> */}
                 </main>
             </div>
             <Footer />

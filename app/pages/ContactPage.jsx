@@ -75,8 +75,8 @@ const ContactPage = () => {
           {/* Contact Info */}
           <div className="contact-info-section">
             <ContactInfo icon="mail" text="sahin.mur4t@gmail.com" link="sahin.mur4t@gmail.com" isEmail />
-            <ContactInfo icon="public" text="LinkedIn" link="https://linkedin.com/in/yourname" />
-            <ContactInfo icon="code" text="GitHub" link="https://github.com/yourusername" />
+            <ContactInfo icon="public" text="LinkedIn" link="https://www.linkedin.com/in/murat-şahin-425969185/" />
+            <ContactInfo icon="code" text="GitHub" link="https://github.com/MuratS4hin" />
           </div>
         </div>
       </div>
