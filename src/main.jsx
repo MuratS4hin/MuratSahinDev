@@ -1,12 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import routes from './routes.jsx';
 import './global.css';
 
-const router = createBrowserRouter(routes, {
-  basename: '/MuratSahinDev/', // Important for gh-pages
-});
+const router = createHashRouter(routes); 
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
