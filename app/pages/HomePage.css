@@ -1,14 +1,80 @@
 /* Genel Sayfa */
 .home-page {
     font-family: 'Arial', sans-serif;
-    background-color: #111827;
     color: #dce1ed;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Ana bölüm */
+/* Background Image Layer - Behind everything */
+
+/*.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}*/
+
+/* Aquarium Canvas Background */
+.aquarium-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: linear-gradient(to bottom, #001a33 0%, #003366 50%, #004d80 100%);
+}
+
+/* --- NEW: Aquarium Background Styles --- */
+
+/* Container holding video and overlay sits absolutely behind everything */
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Pushes it to the back layer */
+}
+
+/* The actual video tag */
+.background-video {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover is CRITICAL. It makes the video act like
+       a background image, filling the space without stretching. */
+    object-fit: cover; 
+    position: absolute;
+}
+
+/* The dark transparent layer on top of the video */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Adjust the last number (opacity) between 0.4 and 0.8 depending on how bright your video is */
+    background-color: rgba(13, 25, 48, 0.7); 
+    z-index: 1; /* Sits on top of video, but under site content */
+    /* Optional: A subtle blur effect for depth */
+    backdrop-filter: blur(3px);
+}
+
+/* --------------------------------------- */
+
+
+/* Main Part */
 .home-main {
     flex-grow: 1;
     display: flex;
@@ -17,7 +83,17 @@
     padding: 40px 20px;
     text-align: center;
     min-height: calc(100vh - 200px);
+    position: relative; /* Ensure it's above background */
+    z-index: 2;
 }
+
+/* Ensure Header and Footer are also above aquarium background */
+.home-page header, 
+.home-page footer {
+    position: relative;
+    z-index: 3;
+}
+
 
 .home-content {
     display: flex;
@@ -26,82 +102,97 @@
     max-width: 800px;
     width: 100%;
     align-items: center;
+    position: relative;
+    z-index: 3;
 }
 
-/* Başlıklar */
+/* Headings */
 .home-text h1 {
     font-size: 2.5rem;
     font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 12px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    /* Added a heavier text shadow so it pops off the busy background */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Typing effect highlight color */
+.highlight {
+    color: #60a5fa; /* Slightly brighter blue to match water */
+    text-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
 }
 
 .home-text h2 {
     font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.5;
-    color: #4b5563;
+    line-height: 1.6;
+    /* Color handled inline in JSX for this example to override previous styles easier */
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Butonlar */
+/* Buttons */
 .home-buttons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
-    margin-top: 24px;
+    margin-top: 32px;
 }
 
 .btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 140px;
-    max-width: 480px;
-    height: 48px;
-    padding: 0 24px;
-    border-radius: 12px;
-    font-weight: bold;
+    min-width: 150px;
+    height: 50px;
+    padding: 0 28px;
+    border-radius: 8px;
+    font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
 }
 
 .primary-btn {
-    background-color: #2563eb;
+    /* Changed to a deeper ocean blue */
+    background-color: #0ea5e9;
     color: #fff;
     border: none;
+    box-shadow: 0 4px 14px 0 rgba(14, 165, 233, 0.4);
 }
 
 .primary-btn:hover {
-    background-color: #1e40af;
+    background-color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(14, 165, 233, 0.6);
 }
 
 .secondary-btn {
-    background-color: transparent;
-    color: #2563eb;
-    border: 2px solid #2563eb;
+    background-color: rgba(17, 24, 39, 0.6); /* Semi-transparent dark background for readability */
+    color: #e0f2fe;
+    border: 2px solid #0ea5e9;
+    backdrop-filter: blur(5px); /* Glassmorphism effect on button */
 }
 
 .secondary-btn:hover {
-    background-color: rgba(37, 99, 235, 0.1);
+    border-color: #38bdf8;
+    color: #fff;
+    transform: translateY(-2px);
+    background-color: rgba(14, 165, 233, 0.2);
 }
 
 /* Responsive */
 @media (min-width: 640px) {
-    .home-text h1 {
-        font-size: 3rem;
-    }
-    .home-text h2 {
-        font-size: 1.25rem;
-    }
+    .home-text h1 { font-size: 3rem; }
+    .home-text h2 { font-size: 1.25rem; }
 }
 
 @media (min-width: 768px) {
-    .home-text h1 {
-        font-size: 3.75rem;
-    }
-    .home-text h2 {
-        font-size: 1.5rem;
-    }
+    .home-text h1 { font-size: 3.75rem; }
+    .home-text h2 { font-size: 1.25rem; }
 }
