@@ -1,35 +1,9 @@
 import React, { useState } from 'react';
 import Header from '../component/Header.jsx';
 import Footer from '../component/Footer.jsx';
+import ContactInfo from '../component/ContactInfo.jsx';
 import './ContactPage.css';
-
-// MUI Icons
-import MailIcon from "@mui/icons-material/Mail";
-import PublicIcon from "@mui/icons-material/Public";
-import CodeIcon from "@mui/icons-material/Code";
-
-// Map icon strings → MUI Icon components
-const iconMap = {
-  mail: MailIcon,
-  public: PublicIcon,
-  code: CodeIcon,
-};
-
-// ContactInfo component
-const ContactInfo = ({ icon, text, link, isEmail = false }) => {
-  const Icon = iconMap[icon] || MailIcon; // fallback icon
-  return (
-    <a
-      href={isEmail ? `mailto:${link}` : link}
-      className="contact-info-item"
-      target={!isEmail ? "_blank" : undefined}
-      rel={!isEmail ? "noopener noreferrer" : undefined}
-    >
-      <Icon style={{ marginRight: "8px" }} />
-      <span>{text}</span>
-    </a>
-  );
-};
+import { githubUrl, linkedinUrl } from '../constants/constants.jsx';
 
 // Hook to manage form state
 const useFormState = (initialState) => {
@@ -75,8 +49,8 @@ const ContactPage = () => {
           {/* Contact Info */}
           <div className="contact-info-section">
             <ContactInfo icon="mail" text="sahin.mur4t@gmail.com" link="sahin.mur4t@gmail.com" isEmail />
-            <ContactInfo icon="public" text="LinkedIn" link="https://www.linkedin.com/in/murat-şahin-425969185/" />
-            <ContactInfo icon="code" text="GitHub" link="https://github.com/MuratS4hin" />
+            <ContactInfo icon="public" text="LinkedIn" link={linkedinUrl} />
+            <ContactInfo icon="code" text="GitHub" link={githubUrl} />
           </div>
         </div>
       </div>

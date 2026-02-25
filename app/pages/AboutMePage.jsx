@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../component/Header.jsx';
 import Footer from '../component/Footer.jsx';
 import './AboutMePage.css';
+import { resumeUrl } from '../constants/constants.jsx';
 
 // Icons
 import SchoolIcon from '@mui/icons-material/School';
@@ -11,9 +12,32 @@ import DonutSmallIcon from '@mui/icons-material/DonutSmall';
 
 const AboutMePage = () => {
 
+    const handleSidebarLinkClick = (e, sectionId) => {
+        e.preventDefault();
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const handleDownloadResume = () => {
+        // Convert Google Drive view link to download link
+        const driveId = resumeUrl.match(/\/d\/([a-zA-Z0-9-_]+)/)?.[1];
+        if (driveId) {
+            const downloadUrl = `https://drive.google.com/uc?export=download&id=${driveId}`;
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = 'Murat_Sahin_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    };
+
     const SidebarLink = ({ href, icon: Icon, text, isActive = false }) => {
+        const sectionId = href.replace('#', '');
         return (
-            <a href={href} className={`sidebar-link ${isActive ? 'active' : ''}`}>
+            <a href={href} onClick={(e) => handleSidebarLinkClick(e, sectionId)} className={`sidebar-link ${isActive ? 'active' : ''}`}>
                 {Icon && <Icon className="sidebar-icon" />}
                 <p>{text}</p>
             </a>
@@ -42,16 +66,11 @@ const AboutMePage = () => {
                                                 <SidebarLink href="#projects" icon={CreateIcon} text="Projects" />
                         <SidebarLink href="#skill" icon={DonutSmallIcon} text="Skills" />
                     </div>
-                    <button className="download-cv">Download Resume</button>
+                    <button className="download-cv" onClick={handleDownloadResume}>Download Resume</button>
                 </aside>
 
                 {/* Main Content */}
                 <main className="about-main">
-                    {/* Page title */}
-                    <div className="page-title">
-                        <p>Resume</p>
-                    </div>
-
                     {/* Education */}
                     <section className="section" id="education">
                         <div className="section-header">

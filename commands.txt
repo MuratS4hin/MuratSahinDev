@@ -1,0 +1,8 @@
+__ nginx configuration __
+
+__ on vm __
+clone your repo
+git pull
+cd <your_repo>
+npm install
+npm run dev

@@ -1,9 +1,11 @@
 /* General page layout */
 .about-page {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9fafb;
-  color: #111827;
+  font-family: 'Arial', sans-serif;
+  background-color: #001a33;
+  color: #dce1ed;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 .about-container {
@@ -13,6 +15,8 @@
   margin: 0 auto;
   padding: 2rem;
   gap: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* Sidebar */
@@ -21,12 +25,22 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
+  background-color: rgba(31, 41, 55, 0.5);
+  border: 1px solid rgba(14, 165, 233, 0.3);
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 1.5rem;
   position: sticky;
   top: 2rem;
+  backdrop-filter: blur(10px);
+  height: fit-content;
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(14, 165, 233, 0.2);
 }
 
 .profile-picture {
@@ -37,59 +51,89 @@
   background-size: cover;
 }
 
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .profile-info h1 {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: bold;
+  color: #e0f2fe;
 }
 
 .profile-info p {
   margin: 0;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #cbd5e1;
 }
 
 .sidebar-links {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0rem;
 }
 
 .sidebar-link {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   text-decoration: none;
-  color: #111827;
+  color: #cbd5e1;
   font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-.sidebar-link span {
+.sidebar-link p {
+  margin: 0;
+}
+
+.sidebar-link:hover {
+  background-color: rgba(14, 165, 233, 0.2);
+  color: #0ea5e9;
+}
+
+.sidebar-link svg {
   font-size: 1.25rem;
-  color: #6b7280;
+  color: #94a3b8;
+  min-width: 20px;
+}
+
+.sidebar-link:hover svg {
+  color: #0ea5e9;
 }
 
 .sidebar-link.active {
-  background-color: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
+  background-color: rgba(14, 165, 233, 0.25);
+  color: #0ea5e9;
 }
 
-.sidebar-link.active span {
-  color: #3b82f6;
+.sidebar-link.active svg {
+  color: #0ea5e9;
 }
 
 .download-cv {
   width: 100%;
   height: 40px;
-  background-color: #becde5;
+  background-color: #0ea5e9;
   color: #ffffff;
   font-weight: bold;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px 0 rgba(14, 165, 233, 0.4);
+  margin-top: auto;
+}
+
+.download-cv:hover {
+  background-color: #0284c7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(14, 165, 233, 0.6);
 }
 
 /* Main content */
@@ -103,21 +147,26 @@
 .page-title {
   font-size: 1.5rem;
   font-weight: bold;
-  border-bottom: 2px solid #e5e7eb;
+  border-bottom: 2px solid rgba(14, 165, 233, 0.3);
+  color: #e0f2fe;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  padding-bottom: 1rem;
 }
 
 /* Sections */
 .section {
-  background-color: #ffffff;
+  background-color: rgba(31, 41, 55, 0.4);
   border-radius: 1rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(14, 165, 233, 0.2);
   padding: 1rem 1.5rem 1rem 1.5rem;
+  backdrop-filter: blur(10px);
 }
 
 .section-header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  color: #0ea5e9;
 }
 
 /* Section Titles */
@@ -125,6 +174,8 @@
   font-size: 1.375rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: #e0f2fe;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Timeline / Education */
@@ -138,9 +189,14 @@
   margin: 0rem;
 }
 
+.timeline-content .title {
+  color: #e0f2fe;
+  font-weight: 600;
+}
+
 .timeline-content .subtitle {
   font-weight: 500;
-  color: #6b7280;
+  color: #cbd5e1;
   margin: 0.5rem 0rem;
 }
 
@@ -158,27 +214,28 @@
   gap: 1rem;
 }
 
-.experience-item span {
-  font-size: 1.5rem;
-  color: #3b82f6;
-}
-
 .experience-item .title {
   font-weight: 600;
+  color: #e0f2fe;
 }
 
 .experience-item .subtitle {
   font-weight: 500;
-  color: #6b7280;
+  color: #cbd5e1;
 }
 
 .experience-item .date {
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: #94a3b8;
 }
 
 .experience-item ul {
   margin: 0.5rem 0 0 1rem;
+}
+
+.experience-item ul li {
+  color: #cbd5e1;
+  margin: 0.5rem 0;
 }
 
 /* Skills */
@@ -204,7 +261,7 @@
 .skill-bar .bar {
   width: 100%;
   height: 8px;
-  background-color: #e5e7eb;
+  background-color: rgba(148, 163, 184, 0.3);
   border-radius: 4px;
   overflow: hidden;
   margin-top: 0.25rem;
@@ -212,15 +269,15 @@
 
 .skill-bar .bar div {
   height: 100%;
-  background-color: #3b82f6;
+  background-color: #0ea5e9;
   border-radius: 4px;
 }
 
 /* Soft Skills */
 .soft-skills span {
   display: inline-block;
-  background-color: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
+  background-color: rgba(14, 165, 233, 0.2);
+  color: #0ea5e9;
   font-size: 0.75rem;
   font-weight: 500;
   padding: 0.25rem 0.5rem;
@@ -239,76 +296,82 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  background-color: #f9fafb;
+  background-color: rgba(14, 165, 233, 0.1);
   border-radius: 0.5rem;
   padding: 1rem;
   text-align: center;
+  color: #cbd5e1;
 }
 
 .interest-item span {
   font-size: 2rem;
-  color: #3b82f6;
+  color: #0ea5e9;
 }
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
   .about-page {
-    background-color: #111827;
-    color: #f9fafb;
+    background-color: #001a33;
+    color: #dce1ed;
   }
 
   .sidebar {
-    background-color: #1f2937;
-    border-color: #374151;
+    background-color: rgba(31, 41, 55, 0.5);
+    border-color: rgba(14, 165, 233, 0.3);
+  }
+
+  .profile-info h1 {
+    color: #e0f2fe;
   }
 
   .profile-info p {
-    color: #9ca3af;
+    color: #cbd5e1;
   }
 
   .sidebar-link {
-    color: #f9fafb;
+    color: #cbd5e1;
   }
 
-  .sidebar-link span {
-    color: #9ca3af;
+  .sidebar-link svg {
+    color: #94a3b8;
   }
 
   .sidebar-link.active {
-    background-color: rgba(251, 191, 36, 0.2);
-    color: #fbbf24;
+    background-color: rgba(14, 165, 233, 0.25);
+    color: #0ea5e9;
   }
 
-  .sidebar-link.active span {
-    color: #fbbf24;
+  .sidebar-link.active svg {
+    color: #0ea5e9;
   }
 
   .download-cv {
-    background-color: #3168c1;
-    color: #111827;
+    background-color: #0ea5e9;
+    color: #ffffff;
   }
 
   .section {
-    background-color: #1A242E;
-    border-color: #374151;
+    background-color: rgba(31, 41, 55, 0.4);
+    border-color: rgba(14, 165, 233, 0.2);
   }
 
   .experience-item .subtitle,
   .experience-item .date,
   .experience-item ul li {
-    color: #9ca3af;
+    color: #cbd5e1;
   }
 
   .skill-bar .bar {
-    background-color: #374151;
+    background-color: rgba(148, 163, 184, 0.3);
   }
 
   .soft-skills span {
-    background-color: rgba(251, 191, 36, 0.2);
-    color: #fbbf24;
+    background-color: rgba(14, 165, 233, 0.2);
+    color: #0ea5e9;
   }
 
   .interest-item {
-    background-color: #1A242E;
+    background-color: rgba(14, 165, 233, 0.1);
+    color: #cbd5e1;
   }
 }

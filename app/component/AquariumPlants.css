@@ -1,7 +1,7 @@
 /* Aquarium Plants Container */
 .aquarium-plants {
-  position: fixed;
-  bottom: 0;
+  position: absolute;
+  bottom: 50px;
   left: 0;
   width: 100%;
   height: auto;
@@ -70,18 +70,18 @@
 
 .leaf-1 {
   transform: rotate(-30deg);
-  bottom: 0;
+  bottom: 70px;
 }
 
 .leaf-2 {
   transform: rotate(10deg) scale(0.8);
-  bottom: 5px;
+  bottom: 75px;
   left: 10px;
 }
 
 .leaf-3 {
   transform: rotate(50deg) scale(1.1);
-  bottom: 0;
+  bottom: 80px;
   left: 15px;
 }
 
@@ -113,8 +113,8 @@
 
 /* Coral Reef Structure */
 .reef-structure {
-  position: fixed;
-  bottom: 30px;
+  position: absolute;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   width: 600px;

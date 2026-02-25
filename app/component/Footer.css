@@ -1,18 +1,24 @@
 .footer {
   padding: 2.5rem 1.25rem;
   text-align: center;
-  color: #6b7280;
-  border-top: 1px solid #e5e7eb;
+  color: #cbd5e1;
+  border-top: 1px solid rgba(14, 165, 233, 0.2);
+  background: #001a33;
+  padding-bottom: 3.5rem;
+  position: relative;
+  z-index: 3;
+  margin-top: auto;
 }
 
 .footer a {
   margin: 0 1rem;
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color: #1d4ed8;
+  color: #0ea5e9;
 }
 
 .footer-text {
@@ -23,7 +29,7 @@
 /* Optional dark mode */
 @media (prefers-color-scheme: dark) {
   .footer {
-    background: #111827;
+    background: #0b1f33;
     border-top-color: #374151;
     color: #9ca3af;
   }
